@@ -32,16 +32,8 @@ class _CocktailAppState extends State<CocktailApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.greenAccent,
-      appBar: AppBar(
-        title: Center(
-          child: Text("Cocktail App"),
-        ),
-      ),
-      body: Container(
-
-            decoration: BoxDecoration(
+    return Container(
+      decoration: BoxDecoration(
         // Box decoration takes a gradient
         gradient: LinearGradient(
           // Where the linear gradient begins and ends
@@ -51,16 +43,22 @@ class _CocktailAppState extends State<CocktailApp> {
           stops: [0.1, 0.5, 0.7, 0.9],
           colors: [
             // Colors are easy thanks to Flutter's Colors class.
-            Colors.indigo[800],
-            Colors.indigo[700],
-            Colors.indigo[600],
-            Colors.indigo[400],
+            Colors.purple[800],
+            Colors.purple[700],
+            Colors.purple[600],
+            Colors.purple[400],
           ],
         ),
       ),
-
-
-        child: Center(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Center(
+            child: Text("Cocktail App"),
+          ),
+        ),
+        body: Center(
             child: res != null
                 ? ListView.builder(
                     itemCount: drinks.length,
@@ -76,9 +74,11 @@ class _CocktailAppState extends State<CocktailApp> {
                           ),
                         ),
                         title: Text("${drink["strDrink"]}",
-                            style: TextStyle(color: Colors.blue, fontSize: 20.0)),
+                            style:
+                                TextStyle(color: Colors.blue, fontSize: 20.0)),
                         subtitle: Text("${drink["idDrink"]}",
-                            style: TextStyle(color: Colors.blue, fontSize: 15.0)),
+                            style:
+                                TextStyle(color: Colors.blue, fontSize: 15.0)),
                         onTap: () {
                           Navigator.push(
                               context,
